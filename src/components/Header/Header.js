@@ -2,9 +2,13 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import { Link, NavLink } from 'react-router-dom'
+import '../../index.scss'
 
 const authenticatedOptions = (
   <Fragment>
+    <NavLink to='/all-stories' className='nav-link'>Read A Story</NavLink>
+    <NavLink to='/my-stories' className='nav-link'>My Stories</NavLink>
+    <NavLink to='/tell-a-story' className='nav-link'>Tell A Story</NavLink>
     <NavLink to='/change-password' className='nav-link'>Change Password</NavLink>
     <NavLink to='/sign-out' className='nav-link'>Sign Out</NavLink>
   </Fragment>
@@ -24,9 +28,9 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg='primary' variant='dark' expand='md'>
+  <Navbar className='navbar-style' style={{ backgroundColor: '#64b6ac' }} variant='dark' expand='md'>
     <Navbar.Brand>
-      <Link to='/' style={{ color: '#FFF', textDecoration: 'none' }}>capstone-react-client</Link>
+      <Link to='/'><span className='gather-style'>Storytellers</span></Link>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls='basic-navbar-nav' />
     <Navbar.Collapse id='basic-navbar-nav'>
