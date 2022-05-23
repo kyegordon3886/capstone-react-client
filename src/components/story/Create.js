@@ -15,6 +15,7 @@ class CreateStory extends Component {
     this.state = {
       title: '',
       author: '',
+      description: '',
       date: '',
       content: '',
       owner: ''
@@ -72,6 +73,16 @@ class CreateStory extends Component {
                     onChange={this.handleChange}
                   />
                 </Form.Group>
+                <Form.Group controlId='description'>
+                  <Form.Label>Story Description</Form.Label>
+                  <Form.Control
+                    required
+                    name='description'
+                    value={this.state.description}
+                    placeholder='Something simple that tells what the story is about'
+                    onChange={this.handleChange}
+                  />
+                </Form.Group>
                 <Form.Group controlId='date'>
                   <Form.Label>Date Today</Form.Label>
                   <Form.Control
@@ -88,7 +99,7 @@ class CreateStory extends Component {
                   <Form.Control
                     required
                     name='content'
-                    value={this.state.time}
+                    value={this.state.content}
                     placeholder='Tell Your Story Here!'
                     onChange={this.handleChange}
                   />

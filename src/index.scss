@@ -1,23 +1,23 @@
 @import '~bootstrap/scss/bootstrap';
-@import url('https://fonts.googleapis.com/css2?family=Bad+Script&family=Chicle&family=My+Soul&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
 
 body {
-    background-image: url('https://marketplace.canva.com/EAEthkBVLfQ/1/0/1600w/canva-blush-wave-desktop-wallpaper-drvq3zaYl2E.jpg');
+    background-image: url('https: //images.pexels.com/photos/544268/pexels-photo-544268.jpeg');
     background-repeat: no-repeat;
     background-size: cover;
 }
 
 .main-content {
     margin-top: 0;
-    background-color: whitesmoke;
+    background-color: #5e548e;
     padding: 20px 40px;
 }
 
-.gather-style {
-    color: white;
+.app-name-style {
+    color: #ffd000;
     margin: 0 50px;
     letter-spacing: 10px;
-    font-family: 'Bad Script', cursive;
+    font-family: 'Permanent Marker', cursive;
     font-weight: bolder;
     font-size: 30px
 }
@@ -31,14 +31,14 @@ a {
     margin: 0 20px;
 }
 
-.event-link {
+.story-link {
     font-weight: bold;
     text-transform: uppercase;
     letter-spacing: 4px;
     color: #ffa970;
 }
 
-.event-link:hover {
+.story-link:hover {
     color: #f4845f;
 }
 
@@ -67,7 +67,7 @@ form label {
     background-color: #b5c99a;
 }
 
-.event-title {
+.story-title {
     width: 50%;
     background-color: #eeeeee;
     text-transform: uppercase;
@@ -79,7 +79,7 @@ form label {
     border: 1px solid #dcdcdd;
 }
 
-.event-details {
+.story-details {
     border: 1px solid #dcdcdd;
     background-color: whitesmoke;
     margin: auto;
@@ -87,12 +87,12 @@ form label {
     padding: 4%;
 }
 
-.event-details-title {
+.story-details-title {
     text-decoration: underline;
     letter-spacing: 2px;
 }
 
-.hero-img {
+.main-img {
     width: 100%;
     background-position: center;
     background-repeat: no-repeat;
