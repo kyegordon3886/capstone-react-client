@@ -15,7 +15,7 @@ export const createStory = (data, user) => {
     method: 'POST',
     url: apiUrl + '/stories',
     data: {
-      event: data
+      story: data
     },
     headers: {
       Authorization: `Bearer ${user.token}`
@@ -49,9 +49,9 @@ export const updateStory = (data, id, user) => {
       story: {
         title: data.title,
         author: data.author,
+        description: data.description,
         date: data.date,
-        content: data.content,
-        owner: data.owner
+        content: data.content
 
       }
     },

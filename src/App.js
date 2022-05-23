@@ -11,10 +11,10 @@ import SignIn from './components/auth/SignIn'
 import SignOut from './components/auth/SignOut'
 import ChangePassword from './components/auth/ChangePassword'
 
-// import IndexStories from './components/story/Index'
+import IndexStories from './components/story/Index'
 import CreateStory from './components/story/Create'
-// import ShowStory from './components/story/Show'
-// import UpdateStory from './components/story/Update'
+import ShowStory from './components/story/Show'
+import UpdateStory from './components/story/Update'
 
 class App extends Component {
   constructor (props) {
@@ -96,23 +96,31 @@ class App extends Component {
             path='/tell-a-story'
             render={() => <CreateStory msgAlert={this.msgAlert} user={user} />}
           />
-          {/* <AuthenticatedRoute
+          <AuthenticatedRoute
             exact
             user={user}
             path='/all-stories'
-            render={() => <IndexStories msgAlert={this.msgAlert} user={user} />}
-          /> */}
-          {/* <AuthenticatedRoute
+            render={() => <IndexStories msgAlert={this.msgAlert} user={user} userOnly={false}/>}
+          />
+          <AuthenticatedRoute
             exact
             user={user}
-            path='/my-stories/:id'
+            path='/stories/:id'
             render={() => <ShowStory msgAlert={this.msgAlert} user={user} />}
-          /> */}
-          {/* <AuthenticatedRoute
+          />
+          <AuthenticatedRoute
+            exact
+            user={user}
+            path='/my-stories'
+            // userOnly prop used for filtering events that only belong to the user
+            render={() => <IndexStories msgAlert={this.msgAlert} user={user} userOnly={true} />}
+          />
+          <AuthenticatedRoute
+            exact
             user={user}
             path='/my-stories/:id/edit-story'
             render={() => <UpdateStory msgAlert={this.msgAlert} user={user} />}
-          /> */}
+          />
         </main>
       </Fragment>
     )

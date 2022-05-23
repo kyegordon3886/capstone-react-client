@@ -28,9 +28,9 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar className='navbar-style' style={{ backgroundColor: '#64b6ac' }} variant='dark' expand='md'>
+  <Navbar className='navbar-style' style={{ backgroundColor: '#111d13' }} variant='dark' expand='md'>
     <Navbar.Brand>
-      <Link to='/'><span className='gather-style'>Storytellers</span></Link>
+      <Link to='/'><span className='app-name-style'>Storytellers</span></Link>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls='basic-navbar-nav' />
     <Navbar.Collapse id='basic-navbar-nav'>
