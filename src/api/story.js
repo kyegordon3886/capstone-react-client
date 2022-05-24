@@ -61,18 +61,34 @@ export const updateStory = (data, id, user) => {
   })
 }
 
-// export const rsvpEvent = (id, userId, user, rsvp) => {
-//   return axios({
-//     method: 'PATCH',
-//     url: apiUrl + '/rsvp/' + id,
-//     data: {
-//       rsvps: {
-//         user: userId,
-//         rsvpStatus: rsvp
-//       }
-//     },
-//     headers: {
-//       Authorization: `Bearer ${user.token}`
-//     }
-//   })
-// }
+export const likeStory = (id, userId, user, like) => {
+  return axios({
+    method: 'PATCH',
+    url: apiUrl + '/like/' + id,
+    data: {
+      likes: {
+        user: userId,
+        likeStatus: like
+      }
+    },
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
+
+export const unlikeStory = (id, userId, user, like) => {
+  return axios({
+    method: 'PATCH',
+    url: apiUrl + '/like/' + id,
+    data: {
+      likes: {
+        user: userId,
+        likeStatus: like
+      }
+    },
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}

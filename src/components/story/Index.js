@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import '../../index.scss'
-// import moment from 'moment'
+import moment from 'moment'
 
 class IndexStories extends Component {
   constructor (props) {
@@ -39,8 +39,7 @@ class IndexStories extends Component {
 
   render () {
     const { stories } = this.state
-    const { userOnly, user } = this.props
-
+    const { userOnly, user, date } = this.props
     if (stories === null) {
       return 'Loading...'
     }
@@ -75,7 +74,7 @@ class IndexStories extends Component {
       // filtering events then mapping through the event where owner is equal to user id
       storiesJSX = stories.filter(story => story.owner === user._id).map(story => (
         <Col key={story._id}>
-          <Card border="secondary">
+          <Card border="secondary" background-color="#6a994e">
             <Card.Header>
               <Link
                 className='story-link'
@@ -91,7 +90,7 @@ class IndexStories extends Component {
                 {story.description}
               </Card.Subtitle>
               <Card.Text>
-                {story.content}
+                {moment(date).format('MMM do YYYY')}
               </Card.Text>
             </Card.Body>
           </Card>
@@ -120,6 +119,9 @@ class IndexStories extends Component {
               <Card.Subtitle>
                 {story.description}
               </Card.Subtitle>
+              <Card.Text>
+                {moment(date).format('MMM do YYYY')}
+              </Card.Text>
             </Card.Body>
           </Card>
         </Col>

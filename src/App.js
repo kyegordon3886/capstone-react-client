@@ -15,6 +15,7 @@ import IndexStories from './components/story/Index'
 import CreateStory from './components/story/Create'
 import ShowStory from './components/story/Show'
 import UpdateStory from './components/story/Update'
+import LeaveComment from './components/comments/Create'
 
 class App extends Component {
   constructor (props) {
@@ -120,6 +121,12 @@ class App extends Component {
             user={user}
             path='/my-stories/:id/edit-story'
             render={() => <UpdateStory msgAlert={this.msgAlert} user={user} />}
+          />
+          <AuthenticatedRoute
+            exact
+            user={user}
+            path='/stories/:id/comment'
+            render={() => <LeaveComment msgAlert={this.msgAlert} user={user} />}
           />
         </main>
       </Fragment>
