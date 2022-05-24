@@ -6,19 +6,16 @@ import { withRouter } from 'react-router-dom'
 
 // import EventForm from '../shared/EventForm'
 
-import { createStory } from '../../api/story'
+import { createComment } from '../../api/comment'
 
-class CreateStory extends Component {
+class LeaveComment extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
       title: '',
-      author: '',
-      description: '',
-      date: '',
       content: '',
-      owner: ''
+      storyId: ''
     }
   }
 
@@ -33,12 +30,12 @@ class CreateStory extends Component {
     // add history below to do the push
     const { user, msgAlert, history } = this.props
 
-    createStory(this.state, user)
-      .then(res => history.push('/stories/' + res.data.story._id))
-      .then(() => msgAlert({ heading: 'Story Created!', message: 'Thanks for sharing!', variant: 'success' }))
+    createComment(this.state, user)
+      .then(res => history.push('/stories/' + res.data.comment._id))
+      .then(() => msgAlert({ heading: 'Comment Created!', message: 'Thanks for sharing!', variant: 'success' }))
       .catch(err => {
         msgAlert({
-          heading: 'Story creation failed :(',
+          heading: 'Comment creation failed :(',
           message: 'Something went wrong: ' + err.message,
           variant: 'danger'
         })
@@ -114,4 +111,4 @@ class CreateStory extends Component {
   }
 }
 // add withRouter() when doing the history push above
-export default withRouter(CreateStory)
+export default withRouter(LeaveComment)
