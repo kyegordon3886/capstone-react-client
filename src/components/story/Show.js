@@ -81,17 +81,17 @@ class ShowStory extends Component {
   //   // save all data to server
 
   render () {
-    const { liked } = this.props
+    // const { liked } = this.props
     if (this.state.story === null) {
       return 'loading...'
     }
 
-    let likedJSX
-    if (liked === false) {
-      likedJSX = 'Like'
-    } else if (liked === true) {
-      likedJSX = 'Liked!'
-    }
+    // let likedJSX
+    // if (liked === false) {
+    //   likedJSX = 'Like'
+    // } else if (liked === true) {
+    //   likedJSX = 'Liked!'
+    // }
 
     //  add owner back in
     const { title, author, description, date, content, owner } = this.state.story
@@ -117,7 +117,7 @@ class ShowStory extends Component {
           <p className='story-details-info'> {description}</p>
           <h6 className='story-details-title'>Story:</h6>
           <p className='story-details-info'>{content}</p>
-          <Button type='submit'>Comment</Button>
+          {/* <Button type='submit'>Comment</Button> */}
           {user._id === owner && (
             <>
               <Button onClick={this.handleDelete}>Delete</Button>
@@ -125,7 +125,7 @@ class ShowStory extends Component {
             </>
           )}
           {/* This button allow a user to like to like/unlike this story */}
-          <Button onClick={this.handleLike}>{likedJSX}</Button>
+          {/* <Button onClick={this.handleLike}>{likedJSX}</Button> */}
         </div>
       </>
     )
