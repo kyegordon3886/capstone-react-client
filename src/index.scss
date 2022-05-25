@@ -1,5 +1,7 @@
 @import '~bootstrap/scss/bootstrap';
 @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&family=Niconne&display=swap');
 
 body {
     background-image: url('https: //images.pexels.com/photos/544268/pexels-photo-544268.jpeg');
@@ -13,6 +15,10 @@ body {
     padding: 20px 40px;
 }
 
+.navbar-style {
+    background-color: #111d13;
+}
+
 .app-name-style {
     color: #ffd000;
     margin: 0 50px;
@@ -21,6 +27,14 @@ body {
     font-weight: bolder;
     font-size: 30px
 }
+.app-name-style:hover {
+    color: #fb5607;
+    margin: 0 50px;
+    letter-spacing: 10px;
+    font-family: 'Permanent Marker', cursive;
+    font-weight: bolder;
+    font-size: 31px
+}
 
 a {
     text-decoration: none;
@@ -28,13 +42,15 @@ a {
 
 .nav-link {
     letter-spacing: 2px;
-    margin: 0 20px;
+    margin: 0 10px 0 10px;
 }
 
 .story-link {
     font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 4px;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 26px;
+    // text-transform: uppercase;
+    letter-spacing: 2px;
     color: #7209b7;
 }
 
@@ -45,7 +61,9 @@ a {
 .page-title {
     padding: 20px 0;
     color: #90a955;
-    text-transform: uppercase;
+    // text-transform: uppercase;
+    font-family: 'Niconne', cursive;
+    font-size: 50px;
     letter-spacing: 6px;
     margin: 30px 0;
     text-align: center;
@@ -55,6 +73,8 @@ a {
 .home-page-title {
     padding: 20px 0;
     color: #ffc300;
+    font-family: 'Niconne', cursive;
+    font-size: 50px;
     // text-transform: uppercase;
     letter-spacing: 6px;
     margin: 30px 0;
@@ -65,6 +85,8 @@ a {
 .home-page-content {
     padding: 20px 0;
     color: #f7ede2;
+    font-family: 'IM Fell English SC', serif;
+    font-size: 25px;
     // text-transform: uppercase;
     letter-spacing: 6px;
     margin: 30px 0;
@@ -88,9 +110,10 @@ form label {
 }
 
 .story-title {
-    width: 50%;
+    width: 70%;
     background-color: #9e2a2b;
-    text-transform: uppercase;
+    font-family: 'IM Fell English SC', serif;
+    // text-transform: uppercase;
     letter-spacing: 6px;
     text-align: center;
     margin: auto;
@@ -102,13 +125,14 @@ form label {
 .story-details {
     border: 1px solid #dcdcdd;
     background-color: rgb(183, 130, 7);
+    
     margin: auto;
-    width: 50%;
+    width: 70%;
     padding: 4%;
 }
 
 .story-details-title {
-    text-decoration: underline;
+    // text-decoration: underline;
     letter-spacing: 2px;
 }
 
@@ -125,7 +149,7 @@ form label {
     border: 1px solid #1414bd;
     background-color: rgb(225, 180, 18);
     margin: auto;
-    width: 60%;
+    width: 75%;
     padding: 2%;
     margin-top: 5%;
 }

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { withRouter } from 'react-router-dom'
-// import likeStory
-import { deleteStory, showStory } from '../../api/story'
+import { deleteStory, showStory, likeStory } from '../../api/story'
 import Button from 'react-bootstrap/Button'
 import moment from 'moment'
 
@@ -22,9 +21,9 @@ class ShowStory extends Component {
 
     showStory(match.params.id, user)
       .then(res => this.setState({ story: res.data.story }))
-      .then(() => {
-        this.setState({ liked: this.state.story.likes.filter(like => like.user === user.id) })
-      })
+      // .then(() => {
+      //   this.setState({ liked: this.state.story.likes.filter(like => like.user === user.id) })
+      // })
       .then(() => {
         msgAlert({
           heading: 'Success',
@@ -64,12 +63,44 @@ class ShowStory extends Component {
       })
   }
 
-  // handleLike = (event) => {
-  //   // const { match, user, msgAlert } = this.props
-  //   const { likes, match } = this.state.story.likeStatus
-  //   // let isLiked = false
-  //   likeStory(match.params.id, user, likes)
-  //     .then((res) => this.setState({ likes: likes = true }))
+  handleLike = (event) => {
+    event.preventDefault()
+    const storyId = this.state.story._id
+    const { match, user, msgAlert } = this.props
+    // this.setState((prevState) => {
+    //   return { liked: !prevState.liked }
+    // })
+    const isLiked = this.state.liked
+    console.log(this.state)
+    console.log(isLiked) // on first click is array
+    console.log(storyId)
+    likeStory(match.params.id, user, isLiked, storyId) // must add story or storyId
+      .then((res) =>
+        this.setState({ liked: !isLiked })
+      )
+      .catch(error => {
+        msgAlert({
+          heading: 'Like Failed',
+          message: 'Something went wrong: ' + error.message,
+          variant: 'danger'
+        })
+      })
+  }
+
+  //   export const likeStory = (id, user, like) => {
+  //   return axios({
+  //     method: 'PATCH',
+  //     url: apiUrl + '/like/' + id,
+  //     data: {
+  //       likes: {
+  //         user: user._id,
+  //         likeStatus: like
+  //       }
+  //     },
+  //     headers: {
+  //       Authorization: `Bearer ${user.token}`
+  //     }
+  //   })
   // }
 
   //   // let initial state of like = false
@@ -81,17 +112,17 @@ class ShowStory extends Component {
   //   // save all data to server
 
   render () {
-    const { liked } = this.props
+    // const { liked } = this.props
     if (this.state.story === null) {
       return 'loading...'
     }
 
-    let likedJSX
-    if (liked === false) {
-      likedJSX = 'Like'
-    } else if (liked === true) {
-      likedJSX = 'Liked!'
-    }
+    // let likedJSX
+    // if (liked === false) {
+    //   likedJSX = 'Like'
+    // } else if (liked === true) {
+    //   likedJSX = 'Liked!'
+    // }
 
     //  add owner back in
     const { title, author, description, date, content, owner } = this.state.story
@@ -113,19 +144,43 @@ class ShowStory extends Component {
           <p className='story-details-info'> {author}</p>
           <h6 className='story-details-title'>Posted:</h6>
           <p className='story-details-info'>{moment.utc(date).format('MM-DD-YYYY')}</p>
-          <h6 className='story-details-title'>Description</h6>
+          <h6 className='story-details-title'>Description:</h6>
           <p className='story-details-info'> {description}</p>
           <h6 className='story-details-title'>Story:</h6>
           <p className='story-details-info'>{content}</p>
-          <Button type='submit'>Comment</Button>
+          {/* <!-- Button trigger modal --> */}
+          {/* <button type="button" className = "btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Comment
+          </button> */}
+          {/* <!-- Modal --> */}
+          {/* <div className="modal fade" id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div className="modal-dialog modal-dialog-centered" role="document">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                  <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div className="modal-body">
+                  ...
+                </div>
+                <div className="modal-footer">
+                  <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" className="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div> */}
+          {/* <Button type='submit'>Comment</Button> */}
           {user._id === owner && (
             <>
-              <Button onClick={this.handleDelete}>Delete</Button>
-              <Button onClick={() => history.push(`/my-stories/${match.params.id}/edit-story`)}>Edit</Button>
+              <Button size='sm' onClick={this.handleDelete}>Delete</Button>
+              <Button size='sm' onClick={() => history.push(`/my-stories/${match.params.id}/edit-story`)}>Edit</Button>
             </>
           )}
           {/* This button allow a user to like to like/unlike this story */}
-          <Button onClick={this.handleLike}>{likedJSX}</Button>
+          <Button type='submit' size='sm' onClick={this.handleLike}>{this.state.liked ? 'Like' : 'Liked!'}</Button>
         </div>
       </>
     )
