@@ -112,7 +112,7 @@ class ShowStory extends Component {
           <h6 className='story-details-title'>Written by:</h6>
           <p className='story-details-info'> {author}</p>
           <h6 className='story-details-title'>Posted:</h6>
-          <p className='story-details-info'>{moment(date).format('MMM do YYYY')}</p>
+          <p className='story-details-info'>{moment(date).format('MM-DD-YYYY')}</p>
           <h6 className='story-details-title'>Description</h6>
           <p className='story-details-info'> {description}</p>
           <h6 className='story-details-title'>Story:</h6>
