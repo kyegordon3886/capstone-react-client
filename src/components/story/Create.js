@@ -76,6 +76,8 @@ class CreateStory extends Component {
                 <Form.Group controlId='description'>
                   <Form.Label>Story Description</Form.Label>
                   <Form.Control
+                    as='textarea'
+                    rows='{5}'
                     required
                     name='description'
                     value={this.state.description}
@@ -97,6 +99,8 @@ class CreateStory extends Component {
                 <Form.Group controlId='content'>
                   <Form.Label>Your Story</Form.Label>
                   <Form.Control
+                    as='textarea'
+                    rows='{1000}'
                     required
                     name='content'
                     value={this.state.content}

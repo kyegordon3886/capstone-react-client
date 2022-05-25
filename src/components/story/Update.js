@@ -75,7 +75,6 @@ class UpdateStory extends Component {
                   <Form.Group controlId='title'>
                     <Form.Label>Story Title</Form.Label>
                     <Form.Control
-                      required
                       name='title'
                       value={this.state.title}
                       placeholder={this.state.story?.title}
@@ -85,7 +84,6 @@ class UpdateStory extends Component {
                   <Form.Group controlId='author'>
                     <Form.Label>Author</Form.Label>
                     <Form.Control
-                      required
                       name='author'
                       value={this.state.author}
                       placeholder={this.state.story?.author}
@@ -94,7 +92,8 @@ class UpdateStory extends Component {
                     <Form.Group controlId='description'>
                       <Form.Label>Description</Form.Label>
                       <Form.Control
-                        required
+                        as='textarea'
+                        rows='{5}'
                         name='description'
                         value={this.state.description}
                         placeholder={this.state.story?.description}
@@ -105,7 +104,6 @@ class UpdateStory extends Component {
                   <Form.Group controlId='date'>
                     <Form.Label>Date</Form.Label>
                     <Form.Control
-                      required
                       name='date'
                       type='date'
                       value={this.state.date}
@@ -116,14 +114,15 @@ class UpdateStory extends Component {
                   <Form.Group controlId='content'>
                     <Form.Label>Your Story</Form.Label>
                     <Form.Control
-                      required
+                      as='textarea'
+                      rows='{1000}'
                       name='content'
                       value={this.state.content}
                       placeholder={this.state.story?.content}
                       onChange={this.handleChange}
                     />
                   </Form.Group>
-                  <Button type='submit'>Submit</Button>
+                  <Button type='submit'>Submit Edit</Button>
                 </Form>
               </div>
             </div>
