@@ -61,29 +61,13 @@ export const updateStory = (data, id, user) => {
   })
 }
 
-export const likeStory = (id, userId, user, like) => {
+export const likeStory = (id, user, like) => {
   return axios({
     method: 'PATCH',
     url: apiUrl + '/like/' + id,
     data: {
       likes: {
-        user: userId,
-        likeStatus: like
-      }
-    },
-    headers: {
-      Authorization: `Bearer ${user.token}`
-    }
-  })
-}
-
-export const unlikeStory = (id, userId, user, like) => {
-  return axios({
-    method: 'PATCH',
-    url: apiUrl + '/like/' + id,
-    data: {
-      likes: {
-        user: userId,
+        user: user._id,
         likeStatus: like
       }
     },

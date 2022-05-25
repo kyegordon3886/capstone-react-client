@@ -16,6 +16,7 @@ import CreateStory from './components/story/Create'
 import ShowStory from './components/story/Show'
 import UpdateStory from './components/story/Update'
 import LeaveComment from './components/comments/Create'
+import HomePage from './components/homepage/Home'
 
 class App extends Component {
   constructor (props) {
@@ -62,6 +63,13 @@ class App extends Component {
           />
         ))}
 	      <main className='container'>
+          <Route
+            exact
+            path='/'
+            render={() => (
+              <HomePage msgAlert={this.msgAlert} setUser={this.setUser} />
+            )}
+          />
 	        <Route
             path='/sign-up'
             render={() => (
