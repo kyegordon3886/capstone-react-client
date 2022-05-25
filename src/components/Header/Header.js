@@ -7,8 +7,8 @@ import '../../index.scss'
 const authenticatedOptions = (
   <Fragment>
     <NavLink to='/all-stories' className='nav-link'>Read A Story</NavLink>
-    <NavLink to='/my-stories' className='nav-link'>My Stories</NavLink>
     <NavLink to='/tell-a-story' className='nav-link'>Tell A Story</NavLink>
+    <NavLink to='/my-stories' className='nav-link'>My Stories</NavLink>
     <NavLink to='/change-password' className='nav-link'>Change Password</NavLink>
     <NavLink to='/sign-out' className='nav-link'>Sign Out</NavLink>
   </Fragment>
@@ -23,12 +23,12 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <Fragment>
-    <NavLink exact to='/' className='nav-link'>Home</NavLink>
+    {/* <NavLink exact to='/' className='nav-link'>Home</NavLink> */}
   </Fragment>
 )
 
 const Header = ({ user }) => (
-  <Navbar className='navbar-style' style={{ backgroundColor: '#111d13' }} variant='dark' expand='md'>
+  <Navbar className='navbar-style' variant='dark' expand='lg'>
     <Navbar.Brand>
       <Link to='/'><span className='app-name-style'>StoryTellers</span></Link>
     </Navbar.Brand>
@@ -36,7 +36,7 @@ const Header = ({ user }) => (
     <Navbar.Collapse id='basic-navbar-nav'>
       <Nav className='ml-auto'>
         {user && (
-          <span className='navbar-text mr-2'>Welcome, {user.email}</span>
+          <span className='navbar-text mr-2' style={{ margin: '0 10px 0 10px' }}>Welcome, {user.email}</span>
         )}
         {alwaysOptions}
         {user ? authenticatedOptions : unauthenticatedOptions}

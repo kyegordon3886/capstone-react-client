@@ -61,11 +61,12 @@ export const updateStory = (data, id, user) => {
   })
 }
 
-export const likeStory = (id, user, like) => {
+export const likeStory = (id, user, like, storyId) => {
   return axios({
     method: 'PATCH',
     url: apiUrl + '/like/' + id,
     data: {
+      storyId: storyId,
       likes: {
         user: user._id,
         likeStatus: like

@@ -5,7 +5,7 @@ import Card from 'react-bootstrap/Card'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 import '../../index.scss'
-import moment from 'moment'
+// import moment from 'moment'
 
 class IndexStories extends Component {
   constructor (props) {
@@ -39,7 +39,7 @@ class IndexStories extends Component {
 
   render () {
     const { stories } = this.state
-    const { userOnly, user, date } = this.props
+    const { userOnly, user } = this.props
     if (stories === null) {
       return 'Loading...'
     }
@@ -84,14 +84,14 @@ class IndexStories extends Component {
             </Card.Header>
             <Card.Body>
               <Card.Title>
-                {story.author}
+                {story.description}
               </Card.Title>
               <Card.Subtitle>
-                {story.description}
+                {story.author}
               </Card.Subtitle>
-              <Card.Text>
-                {moment(date).format('MMM do YYYY')}
-              </Card.Text>
+              {/* <Card.Text>
+                {moment(date).format('MM-DD-YYYY')}
+              </Card.Text> */}
             </Card.Body>
           </Card>
         </Col>
@@ -114,14 +114,14 @@ class IndexStories extends Component {
             </Card.Header>
             <Card.Body>
               <Card.Title>
-                {story.author}
-              </Card.Title>
-              <Card.Subtitle>
                 {story.description}
+              </Card.Title>
+              <Card.Subtitle>By:
+                {story.author}
               </Card.Subtitle>
-              <Card.Text>
-                {moment(date).format('MMM do YYYY')}
-              </Card.Text>
+              {/* <Card.Text>
+                {moment(date).format('MM-DD-YYYY')}
+              </Card.Text> */}
             </Card.Body>
           </Card>
         </Col>
