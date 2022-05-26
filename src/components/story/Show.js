@@ -20,10 +20,36 @@ class ShowStory extends Component {
   componentDidMount () {
     const { match, user, msgAlert } = this.props
 
+    //   likeStory(match.params.id, user, isLiked, storyId)
+    //     .then((res) => this.setState({ story: res.data.story }))
+    //   // .then(() => {
+    //   //   this.setState({ liked: this.state.story.likes.filter(like => like.user === user.id) })
+    //   // })
+    //     .then(() => {
+    //       msgAlert({
+    //         heading: 'Success',
+    //         message: 'Enjoy the read!',
+    //         variant: 'success'
+    //       })
+    //     })
+    //     .catch((error) => {
+    //       msgAlert({
+    //         heading: 'Show story failed',
+    //         message: 'Error message: ' + error.message,
+    //         variant: 'danger'
+    //       })
+    //     })
+    // }
+
     showStory(match.params.id, user)
       .then(res => this.setState({ story: res.data.story }))
       .then(() => {
+<<<<<<< HEAD
         this.setState({ liked: this.state.story.likes.filter(like => like.user === user.id) })
+=======
+        this.setState({ liked: this.state.story.likes.findIndex(like => like.user === user.id) > -1 })
+        // console.log(this.state)
+>>>>>>> d62ed81 (Added README)
       })
       .then(() => {
         msgAlert({
@@ -40,6 +66,30 @@ class ShowStory extends Component {
         })
       })
   }
+
+  // componentDidUpdate () {
+  //   const { match, user, msgAlert } = this.props
+
+  //   likeStory(match.params.id, user, isLiked, storyId)
+  //     .then((res) => this.setState({ story: res.data.story }))
+  //   // .then(() => {
+  //   //   this.setState({ liked: this.state.story.likes.filter(like => like.user === user.id) })
+  //   // })
+  //     .then(() => {
+  //       msgAlert({
+  //         heading: 'Success',
+  //         message: 'Enjoy the read!',
+  //         variant: 'success'
+  //       })
+  //     })
+  //     .catch((error) => {
+  //       msgAlert({
+  //         heading: 'Show story failed',
+  //         message: 'Error message: ' + error.message,
+  //         variant: 'danger'
+  //       })
+  //     })
+  // }
 
   handleDelete = () => {
     const { match, user, msgAlert, history } = this.props // destructuring out router stuff and user
@@ -64,12 +114,42 @@ class ShowStory extends Component {
       })
   }
 
-  // handleLike = (event) => {
-  //   // const { match, user, msgAlert } = this.props
-  //   const { likes, match } = this.state.story.likeStatus
-  //   // let isLiked = false
-  //   likeStory(match.params.id, user, likes)
-  //     .then((res) => this.setState({ likes: likes = true }))
+  handleLike = (event) => {
+    event.preventDefault()
+    const storyId = this.state.story._id
+    const { match, user, msgAlert } = this.props
+    // this.setState((prevState) => {
+    //   return { liked: !prevState.liked }
+    // })
+    const isLiked = this.state.liked
+    likeStory(match.params.id, user, isLiked, storyId) // must add story or storyId
+      .then((res) =>
+        this.setState({ liked: !isLiked })
+      )
+      // .then(console.log(this.state))
+      .catch(error => {
+        msgAlert({
+          heading: 'Like Failed',
+          message: 'Something went wrong: ' + error.message,
+          variant: 'danger'
+        })
+      })
+  }
+
+  //   export const likeStory = (id, user, like) => {
+  //   return axios({
+  //     method: 'PATCH',
+  //     url: apiUrl + '/like/' + id,
+  //     data: {
+  //       likes: {
+  //         user: user._id,
+  //         likeStatus: like
+  //       }
+  //     },
+  //     headers: {
+  //       Authorization: `Bearer ${user.token}`
+  //     }
+  //   })
   // }
 
   //   // let initial state of like = false
@@ -81,12 +161,12 @@ class ShowStory extends Component {
   //   // save all data to server
 
   render () {
-    // const { liked } = this.props
+    // const { liked } = this.state.liked
     if (this.state.story === null) {
       return 'loading...'
     }
 
-    // let likedJSX
+    // let likedJSX = this.state.liked
     // if (liked === false) {
     //   likedJSX = 'Like'
     // } else if (liked === true) {
