@@ -19,11 +19,33 @@ class ShowStory extends Component {
   componentDidMount () {
     const { match, user, msgAlert } = this.props
 
+    //   likeStory(match.params.id, user, isLiked, storyId)
+    //     .then((res) => this.setState({ story: res.data.story }))
+    //   // .then(() => {
+    //   //   this.setState({ liked: this.state.story.likes.filter(like => like.user === user.id) })
+    //   // })
+    //     .then(() => {
+    //       msgAlert({
+    //         heading: 'Success',
+    //         message: 'Enjoy the read!',
+    //         variant: 'success'
+    //       })
+    //     })
+    //     .catch((error) => {
+    //       msgAlert({
+    //         heading: 'Show story failed',
+    //         message: 'Error message: ' + error.message,
+    //         variant: 'danger'
+    //       })
+    //     })
+    // }
+
     showStory(match.params.id, user)
       .then(res => this.setState({ story: res.data.story }))
-      // .then(() => {
-      //   this.setState({ liked: this.state.story.likes.filter(like => like.user === user.id) })
-      // })
+      .then(() => {
+        this.setState({ liked: this.state.story.likes.findIndex(like => like.user === user.id) > -1 })
+        // console.log(this.state)
+      })
       .then(() => {
         msgAlert({
           heading: 'Success',
@@ -39,6 +61,30 @@ class ShowStory extends Component {
         })
       })
   }
+
+  // componentDidUpdate () {
+  //   const { match, user, msgAlert } = this.props
+
+  //   likeStory(match.params.id, user, isLiked, storyId)
+  //     .then((res) => this.setState({ story: res.data.story }))
+  //   // .then(() => {
+  //   //   this.setState({ liked: this.state.story.likes.filter(like => like.user === user.id) })
+  //   // })
+  //     .then(() => {
+  //       msgAlert({
+  //         heading: 'Success',
+  //         message: 'Enjoy the read!',
+  //         variant: 'success'
+  //       })
+  //     })
+  //     .catch((error) => {
+  //       msgAlert({
+  //         heading: 'Show story failed',
+  //         message: 'Error message: ' + error.message,
+  //         variant: 'danger'
+  //       })
+  //     })
+  // }
 
   handleDelete = () => {
     const { match, user, msgAlert, history } = this.props // destructuring out router stuff and user
@@ -71,13 +117,11 @@ class ShowStory extends Component {
     //   return { liked: !prevState.liked }
     // })
     const isLiked = this.state.liked
-    console.log(this.state)
-    console.log(isLiked) // on first click is array
-    console.log(storyId)
     likeStory(match.params.id, user, isLiked, storyId) // must add story or storyId
       .then((res) =>
         this.setState({ liked: !isLiked })
       )
+      // .then(console.log(this.state))
       .catch(error => {
         msgAlert({
           heading: 'Like Failed',
@@ -112,12 +156,12 @@ class ShowStory extends Component {
   //   // save all data to server
 
   render () {
-    // const { liked } = this.props
+    // const { liked } = this.state.liked
     if (this.state.story === null) {
       return 'loading...'
     }
 
-    // let likedJSX
+    // let likedJSX = this.state.liked
     // if (liked === false) {
     //   likedJSX = 'Like'
     // } else if (liked === true) {
