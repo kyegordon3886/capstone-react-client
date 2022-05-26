@@ -43,14 +43,10 @@ class ShowStory extends Component {
 
     showStory(match.params.id, user)
       .then(res => this.setState({ story: res.data.story }))
-      .then(() => {
-<<<<<<< HEAD
-        this.setState({ liked: this.state.story.likes.filter(like => like.user === user.id) })
-=======
-        this.setState({ liked: this.state.story.likes.findIndex(like => like.user === user.id) > -1 })
-        // console.log(this.state)
->>>>>>> d62ed81 (Added README)
-      })
+      // .then(() => {
+      //   this.setState({ liked: this.state.story.likes.findIndex(like => like.user === user.id) > -1 })
+    // console.log(this.state)
+      // })
       .then(() => {
         msgAlert({
           heading: 'Success',
@@ -114,27 +110,27 @@ class ShowStory extends Component {
       })
   }
 
-  handleLike = (event) => {
-    event.preventDefault()
-    const storyId = this.state.story._id
-    const { match, user, msgAlert } = this.props
-    // this.setState((prevState) => {
-    //   return { liked: !prevState.liked }
-    // })
-    const isLiked = this.state.liked
-    likeStory(match.params.id, user, isLiked, storyId) // must add story or storyId
-      .then((res) =>
-        this.setState({ liked: !isLiked })
-      )
-      // .then(console.log(this.state))
-      .catch(error => {
-        msgAlert({
-          heading: 'Like Failed',
-          message: 'Something went wrong: ' + error.message,
-          variant: 'danger'
-        })
-      })
-  }
+  // handleLike = (event) => {
+  //   event.preventDefault()
+  //   const storyId = this.state.story._id
+  //   const { match, user, msgAlert } = this.props
+  //   // this.setState((prevState) => {
+  //   //   return { liked: !prevState.liked }
+  //   // })
+  //   const isLiked = this.state.liked
+  //   likeStory(match.params.id, user, isLiked, storyId) // must add story or storyId
+  //     .then((res) =>
+  //       this.setState({ liked: !isLiked })
+  //     )
+  //     // .then(console.log(this.state))
+  //     .catch(error => {
+  //       msgAlert({
+  //         heading: 'Like Failed',
+  //         message: 'Something went wrong: ' + error.message,
+  //         variant: 'danger'
+  //       })
+  //     })
+  // }
 
   //   export const likeStory = (id, user, like) => {
   //   return axios({
