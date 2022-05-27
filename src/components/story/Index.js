@@ -116,7 +116,7 @@ class IndexStories extends Component {
               <Card.Title>
                 {story.description}
               </Card.Title>
-              <Card.Subtitle>By:
+              <Card.Subtitle>
                 {story.author}
               </Card.Subtitle>
               {/* <Card.Text>

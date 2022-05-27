@@ -224,7 +224,7 @@ class ShowStory extends Component {
             </>
           )}
           {/* This button allow a user to like to like/unlike this story */}
-          <Button type='submit' size='sm' onClick={this.handleLike}>{this.state.liked ? 'Like' : 'Liked!'}</Button>
+          {/* <Button type='submit' size='sm' onClick={this.handleLike}>{this.state.liked ? 'Like' : 'Liked!'}</Button> */}
         </div>
       </>
     )
