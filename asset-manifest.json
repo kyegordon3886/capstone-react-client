@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/capstone-react-client/static/css/main.015989c2.chunk.css",
-    "main.js": "/capstone-react-client/static/js/main.636ff450.chunk.js",
-    "main.js.map": "/capstone-react-client/static/js/main.636ff450.chunk.js.map",
+    "main.css": "/capstone-react-client/static/css/main.b37f3fc6.chunk.css",
+    "main.js": "/capstone-react-client/static/js/main.f7af73e1.chunk.js",
+    "main.js.map": "/capstone-react-client/static/js/main.f7af73e1.chunk.js.map",
     "runtime-main.js": "/capstone-react-client/static/js/runtime-main.c120defa.js",
     "runtime-main.js.map": "/capstone-react-client/static/js/runtime-main.c120defa.js.map",
-    "static/js/2.eb6ee80f.chunk.js": "/capstone-react-client/static/js/2.eb6ee80f.chunk.js",
-    "static/js/2.eb6ee80f.chunk.js.map": "/capstone-react-client/static/js/2.eb6ee80f.chunk.js.map",
+    "static/js/2.8fc75095.chunk.js": "/capstone-react-client/static/js/2.8fc75095.chunk.js",
+    "static/js/2.8fc75095.chunk.js.map": "/capstone-react-client/static/js/2.8fc75095.chunk.js.map",
     "index.html": "/capstone-react-client/index.html",
-    "static/css/main.015989c2.chunk.css.map": "/capstone-react-client/static/css/main.015989c2.chunk.css.map",
-    "static/js/2.eb6ee80f.chunk.js.LICENSE.txt": "/capstone-react-client/static/js/2.eb6ee80f.chunk.js.LICENSE.txt"
+    "static/css/main.b37f3fc6.chunk.css.map": "/capstone-react-client/static/css/main.b37f3fc6.chunk.css.map",
+    "static/js/2.8fc75095.chunk.js.LICENSE.txt": "/capstone-react-client/static/js/2.8fc75095.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c120defa.js",
-    "static/js/2.eb6ee80f.chunk.js",
-    "static/css/main.015989c2.chunk.css",
-    "static/js/main.636ff450.chunk.js"
+    "static/js/2.8fc75095.chunk.js",
+    "static/css/main.b37f3fc6.chunk.css",
+    "static/js/main.f7af73e1.chunk.js"
   ]
 }
